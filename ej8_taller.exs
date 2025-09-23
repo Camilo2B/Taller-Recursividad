@@ -12,7 +12,7 @@ defmodule Tienda do
 
     #Casos de productos ya añadidos
     productos_enlistados = [%{productos: "Arroz X 500 lb", cantidad: 15}, %{productos: "Leche X 1.5 litros", cantidad: 10}]
-    Funcional.mostrar_mensaje("Productos ya enlistados")
+    Util.show_message("Productos ya enlistados")
     IO.inspect(productos_enlistados)
 
 
@@ -26,26 +26,26 @@ defmodule Tienda do
     #Añadir el producto a la nueva lista
     lista_actualizada = [producto_nuevo_lista | productos_enlistados]
 
-    Funcional.mostrar_mensaje("Lista de productos se ha actualizado")
+    Util.show_message("Lista de productos se ha actualizado")
     IO.inspect(lista_actualizada)
 
     total_productos = calcular_cantidad_productos_pedidos(lista_actualizada)
 
-    Funcional.mostrar_mensaje("Ahora la lista de productos es: #{total_productos}")
+    Util.show_message("Ahora la lista de productos es: #{total_productos}")
   end
 
   def pedir_producto_llevar do
-    Funcional.input("Ingrese el producto a llevar: ",:string)
+    Util.input("Ingrese el producto a llevar: ",:string)
     |> String.trim
   end
 
   def pedir_cantidad_producto_llevar do
-    entrada = Funcional.input("Ingrese la cantidad del producto elegido que desea llevar: ",:string)
+    entrada = Util.input("Ingrese la cantidad del producto elegido que desea llevar: ",:string)
     case Integer.parse(entrada) do
       {num, ""} ->
         num
       _->
-      Funcional.mostrar_mensaje("Entrada invalida, no se agregaron productos")
+      Util.show_message("Entrada invalida, no se agregaron productos")
       0
     end
   end

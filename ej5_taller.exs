@@ -10,7 +10,7 @@ defmodule Reserva do
 
     #Reservas existentes
     reservas_existentes = [%{cliente: "Erwin", dias: 10},%{cliente: "Daniela", dias: 10}]
-    Funcional.mostrar_mensaje("--- Reservas existentes ---")
+    Util.show_message("--- Reservas existentes ---")
     IO.inspect(reservas_existentes)
 
     #Pedir datos
@@ -23,28 +23,28 @@ defmodule Reserva do
     # 4. Añadir la reserva a la lista
     lista_actualizada = [nueva_reserva | reservas_existentes] #HEAD-TAIL
 
-    Funcional.mostrar_mensaje("\n--- Lista actualizada ---")
+    Util.show_message("\n--- Lista actualizada ---")
     IO.inspect(lista_actualizada)
 
     # 5. Llamado a la función recursiva con la LISTA COMPLETA
     total_dias = sumar_dias_reservados(lista_actualizada)
 
-    Funcional.mostrar_mensaje("\nEl total de días reservados ahora es: #{total_dias}")
+    Util.show_message("\nEl total de días reservados ahora es: #{total_dias}")
   end
 
   def pedir_nombre do
-    Funcional.input("Ingrese su nombre para la reserva: " ,:string)
+    Util.input("Ingrese su nombre para la reserva: " ,:string)
     |> String.trim()
   end
 
   def pedir_dias_estadia do
     # Completamos esta función para que pida los días
-    case Funcional.input("Ingrese los días que desea quedarse: " ,:string)
+    case Util.input("Ingrese los días que desea quedarse: " ,:string)
     |> String.trim()
     |> Integer.parse() do
       {num, ""} -> num
       _ ->
-        Funcional.mostrar_mensaje("Entrada inválida. Se asignarán 0 días.")
+        Util.show_message("Entrada inválida. Se asignarán 0 días.")
         0
     end
   end
