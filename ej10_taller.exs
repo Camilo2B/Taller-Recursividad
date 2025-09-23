@@ -11,7 +11,7 @@ defmodule Arbol_Binario do
     buscar_ruta_recursiva(arbol, suma_objetivo, [], 0)
   end
 
-  # --- Casos de la recursión ---
+  # Casos bases planteado para el ejercicio
 
   #Caso base #1: Se llega a un nodo vacio (nil)
   def buscar_ruta_recursiva(nil, _, _, _)do
@@ -41,7 +41,7 @@ defmodule Arbol_Binario do
     rutas_encontradas_izquierda ++ rutas_encontradas_derecha
   end
 
-  # --- Función para ejecutar el ejemplo ---
+  # Arbol binario propuesto para el enunciado
   def run do
     # Árbol de ejemplo corregido
     arbol = {:nodo, 10,
